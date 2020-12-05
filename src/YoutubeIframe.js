@@ -15,6 +15,7 @@ import {
   soundMode,
   MAIN_SCRIPT,
   PLAYER_FUNCTIONS,
+  MAIN_SCRIPT_REMOTE,
 } from './PlayerScripts';
 
 const YoutubeIframe = (props, ref) => {
@@ -23,6 +24,7 @@ const YoutubeIframe = (props, ref) => {
     width,
     videoId,
     playList,
+    remote,
     play = false,
     mute = false,
     volume = 100,
@@ -191,18 +193,34 @@ const YoutubeIframe = (props, ref) => {
         //add props that should not be allowed to be overridden below
         ref={webViewRef}
         onMessage={onWebMessage}
-        source={{
-          // partially allow source to be overridden
-          ...webViewProps?.source,
-          method: 'GET',
-          html: MAIN_SCRIPT(
-            videoId,
-            playList,
-            initialPlayerParams,
-            allowWebViewZoom,
-            contentScale,
-          ),
-        }}
+        source={
+          !remote
+            ? {
+                // partially allow source to be overridden
+                ...webViewProps?.source,
+                method: 'GET',
+                html: MAIN_SCRIPT(
+                  videoId,
+                  playList,
+                  initialPlayerParams,
+                  allowWebViewZoom,
+                  contentScale,
+                ),
+              }
+            : {
+                // partially allow source to be overridden
+                ...webViewProps?.source,
+                method: 'GET',
+                uri: MAIN_SCRIPT_REMOTE(
+                  videoId,
+                  playList,
+                  initialPlayerParams,
+                  allowWebViewZoom,
+                  contentScale,
+                  remote,
+                ),
+              }
+        }
       />
     </View>
   );

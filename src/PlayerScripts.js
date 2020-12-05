@@ -211,3 +211,70 @@ export const MAIN_SCRIPT = (
 </html>
 `;
 };
+
+export const MAIN_SCRIPT_REMOTE = (
+  videoId,
+  playList,
+  initialPlayerParams,
+  allowWebViewZoom,
+  contentScale,
+  remote,
+) => {
+  const {
+    end,
+    rel,
+    color,
+    start,
+    playerLang,
+    loop = false,
+    cc_lang_pref,
+    iv_load_policy,
+    modestbranding,
+    controls = true,
+    showClosedCaptions,
+    preventFullScreen = false,
+  } = initialPlayerParams;
+
+  // _s postfix to refer to "safe"
+  const rel_s = rel ? 1 : 0;
+  const loop_s = loop ? 1 : 0;
+  const videoId_s = videoId || '';
+  const controls_s = controls ? 1 : 0;
+  const cc_lang_pref_s = cc_lang_pref || '';
+  const modestbranding_s = modestbranding ? 1 : 0;
+  const preventFullScreen_s = preventFullScreen ? 0 : 1;
+  const showClosedCaptions_s = showClosedCaptions ? 1 : 0;
+  const list = typeof playList === 'string' ? playList : '';
+  const listType = typeof playList === 'string' ? 'playlist' : '';
+  const contentScale_s = typeof contentScale === 'number' ? contentScale : 1.0;
+
+  // scale will either be "initial-scale=1.0"
+  let scale = `initial-scale=${contentScale_s}`;
+  if (allowWebViewZoom) {
+    // or "initial-scale=0.8, maximum-scale=1.0"
+    scale += `, maximum-scale=${contentScale_s}`;
+  }
+
+  return (
+    remote +
+    '?' +
+    buildURLQuery({
+      scale,
+      videoId_s,
+      end,
+      rel_s,
+      loop_s,
+      color,
+      start,
+      list,
+      playerLang,
+      listType,
+      controls_s,
+      preventFullScreen_s,
+      cc_lang_pref_s,
+      iv_load_policy,
+      modestbranding_s,
+      showClosedCaptions_s,
+    })
+  );
+};

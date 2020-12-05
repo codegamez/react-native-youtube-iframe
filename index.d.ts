@@ -29,6 +29,12 @@ export interface InitialPlayerParams {
 
 export interface YoutubeIframeProps {
   /**
+   * remote url for iframe container
+   *
+   * some videos can't play inside local iframe. so you can host the youtube.html file in your server and set url here.
+   */
+  remote: String;
+  /**
    * height of the webview container
    *
    * Note: Embedded players must have a viewport that is at least 200px by 200px. If the player displays controls, it must be large enough to fully display the controls without shrinking the viewport below the minimum size. We recommend 16:9 players be at least 480 pixels wide and 270 pixels tall.
