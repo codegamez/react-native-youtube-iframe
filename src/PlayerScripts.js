@@ -61,6 +61,11 @@ export const soundMode = {
   [UNMUTE_MODE]: PLAYER_FUNCTIONS.unMuteVideo,
 };
 
+const buildURLQuery = obj =>
+  Object.entries(obj)
+    .map(pair => pair.map(encodeURIComponent).join('='))
+    .join('&');
+
 export const MAIN_SCRIPT = (
   videoId,
   playList,
