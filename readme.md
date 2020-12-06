@@ -1,9 +1,10 @@
-# React Native Youtube iframe
+# React Native Youtube iframe + solving unavailable video problem
 
-![npm](https://img.shields.io/npm/v/react-native-youtube-iframe?style=for-the-badge) ![npm](https://img.shields.io/npm/dm/react-native-youtube-iframe?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/react-native-youtube-iframe-2?style=for-the-badge) ![npm](https://img.shields.io/npm/dm/react-native-youtube-iframe-2?style=for-the-badge)
 
 A wrapper of the Youtube IFrame player API build for react native.
 
+- ✅ solving unavalabe video 
 - ✅ Works seamlessly on both ios and android platforms
 - ✅ Does not rely on the native youtube service on android (prevents unexpected crashes, works on phones without the youtube app)
 - ✅ Uses the webview player which is known to be more stable compared to the native youtube app
@@ -17,7 +18,17 @@ A wrapper of the Youtube IFrame player API build for react native.
 
 ## Installation and Documentation
 
+
+same as react-native-youtube-iframe just we added remote props
 [react-native-youtube-iframe](https://lonelycpp.github.io/react-native-youtube-iframe/)
+
+ ```
+ <YouTube
+          remote="https://shahab-yousefi.github.io/react-native-youtube-iframe/youtube.html"
+          videoId={video_id} // The YouTube video ID
+          height={height} // your custom height
+   />
+ ```
 
 ## Contributing
 
