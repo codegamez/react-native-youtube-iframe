@@ -1,6 +1,6 @@
 {
   "name": "react-native-youtube-iframe-2",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "A simple wrapper around the youtube iframe js API for react native",
   "main": "dist/index.js",
   "types": "index.d.ts",
