@@ -21,13 +21,9 @@
       }
     </style>
   </head>
-  <body style="width: 100vw; height: 100vh; overflow: hidden">
+  <body>
     <div class="container">
-      <iframe
-        id="player"
-        type="text/html"
-        style="width: 100vw; height: 100vh; overflow: hidden"
-      ></iframe>
+      <div class="video" id="player" />
     </div>
 
     <script>
@@ -45,9 +41,7 @@
       }
 
       const videoId_s = findGetParameter('videoId_s');
-      const origin = findGetParameter('origin') || 'https://youtube.com';
       const end = findGetParameter('end');
-      const autoplay = findGetParameter('autoplay');
       const rel_s = findGetParameter('rel_s');
       const loop_s = findGetParameter('loop_s');
       const color = findGetParameter('color');
@@ -62,44 +56,6 @@
       const modestbranding_s = findGetParameter('modestbranding_s');
       const showClosedCaptions_s = findGetParameter('showClosedCaptions_s');
 
-      const params = {
-        origin: origin,
-        enablejsapi: 1,
-        end: end,
-        rel: rel_s,
-        playsinline: 1,
-        loop: loop_s,
-        color: color,
-        start: start,
-        list: list,
-        hl: playerLang,
-        listType: listType,
-        controls: controls_s,
-        fs: preventFullScreen_s,
-        cc_lang_pref: cc_lang_pref_s,
-        iv_load_policy: iv_load_policy,
-        modestbranding: modestbranding_s,
-        cc_load_policy: showClosedCaptions_s,
-        autoplay: autoplay,
-      };
-
-      var youtubeUrl =
-        `https://www.youtube.com/embed/${videoId_s}?` +
-        new URLSearchParams(params);
-
-      const iframe = document.querySelector('#player');
-
-      iframe.setAttribute('src', youtubeUrl);
-      iframe.setAttribute('width', '1000');
-      iframe.setAttribute('height', '1000');
-      iframe.setAttribute('frameborder', 0);
-      iframe.setAttribute('allowfullscreen', 1);
-      iframe.setAttribute('autoplay', autoplay);
-      iframe.setAttribute(
-        'allow',
-        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
-      );
-
       var tag = document.createElement('script');
 
       tag.src = 'https://www.youtube.com/iframe_api';
@@ -108,12 +64,27 @@
 
       var player;
       function onYouTubeIframeAPIReady() {
-        console.log(YT);
         player = new YT.Player('player', {
           width: '1000',
           height: '1000',
           videoId: videoId_s,
-          playerVars: params,
+          playerVars: {
+            end: end,
+            rel: rel_s,
+            playsinline: 1,
+            loop: loop_s,
+            color: color,
+            start: start,
+            list: list,
+            hl: playerLang,
+            listType: listType,
+            controls: controls_s,
+            fs: preventFullScreen_s,
+            cc_lang_pref: cc_lang_pref_s,
+            iv_load_policy: iv_load_policy,
+            modestbranding: modestbranding_s,
+            cc_load_policy: showClosedCaptions_s,
+          },
           events: {
             onReady: onPlayerReady,
             onStateChange: onPlayerStateChange,
