@@ -1,5 +1,5 @@
 Arguments: 
-  /home/syousefi/Apps/node/bin/node /home/syousefi/Apps/node/bin/yarn publish
+  /home/syousefi/Apps/node/bin/node /home/syousefi/Apps/node/bin/yarn owner add setbap
 
 PATH: 
   :/home/syousefi/Apps/node/bin:/home/syousefi/Apps/android/android-sdk/tools:/home/syousefi/Apps/android/android-sdk/platform-tools:/home/syousefi/Apps/android/android-sdk/emulator:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/home/syousefi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.npmjs.org/-/user/org.couchdb.user:codegames: The provided password is too short. Please pick a password longer than 10 characters.
+  Error: https://registry.npmjs.org/react-native-youtube-iframe-2/-rev/undefined: Forbidden
       at Request.params.callback [as _callback] (/home/syousefi/Apps/node/lib/node_modules/yarn/lib/cli.js:66987:18)
       at Request.self.callback (/home/syousefi/Apps/node/lib/node_modules/yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:315:20)
@@ -29,7 +29,7 @@ Trace:
 npm manifest: 
   {
     "name": "react-native-youtube-iframe-2",
-    "version": "1.4.3",
+    "version": "1.4.5",
     "description": "A simple wrapper around the youtube iframe js API for react native",
     "main": "dist/index.js",
     "types": "index.d.ts",
@@ -41,7 +41,7 @@ npm manifest:
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/LonelyCpp/react-native-youtube-iframe.git"
+      "url": "git+https://github.com/shahab-yousefi/react-native-youtube-iframe"
     },
     "keywords": [
       "react-native",
@@ -60,9 +60,9 @@ npm manifest:
     "author": "Ananthu P Kanive",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/LonelyCpp/react-native-youtube-iframe/issues"
+      "url": "https://github.com/shahab-yousefi/react-native-youtube-iframe/issues"
     },
-    "homepage": "https://lonelycpp.github.io/react-native-youtube-iframe/",
+    "homepage": "https://github.com/shahab-yousefi/react-native-youtube-iframe",
     "peerDependencies": {
       "react": ">=16.8.6",
       "react-native": ">=0.60",
